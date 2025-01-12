@@ -11,7 +11,7 @@ public class Main {
         task1(5);
         task2("Hallo");
         task3();
-        task4(12,59);
+        task4(12, 59);
     }
 
     public static void task1(int length) {
@@ -24,21 +24,23 @@ public class Main {
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             array[i] = random.nextInt(201) - 100;
-            sum+=array[i];
-            if(array[i]>maxNumber) {
+            sum += array[i];
+            if (array[i] > maxNumber) {
                 maxNumber = array[i];
             }
-            if(array[i]<minNumber) {
+            if (array[i] < minNumber) {
                 minNumber = array[i];
             }
         }
-        double avgNumber = sum/length; 
+        double avgNumber = sum / length;
         System.out.println("\nМассив:");
         System.out.println(Arrays.toString(array));
-        System.out.println("Минимальное: "+ minNumber+"\nМаксимально: "+ maxNumber + "\nСреднее значение: "+ avgNumber);
-        
+        System.out.println(
+                "Минимальное: " + minNumber + "\nМаксимально: " + maxNumber + "\nСреднее значение: " + avgNumber);
+
     }
-    public static void task2(String word){
+
+    public static void task2(String word) {
         System.out.println("\nTask 2");
 
         Map<Character, Integer> charCount = new HashMap<>();
@@ -60,7 +62,8 @@ public class Main {
         String answer = isHas ? ";" : " нету";
         System.out.println(answer);
     }
-    public static void task3(){
+
+    public static void task3() {
         System.out.println("\nTask 3");
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -93,7 +96,8 @@ public class Main {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
-    public static void task4(int hours, int minutes){
+
+    public static void task4(int hours, int minutes) {
         System.out.println("\nTask 4");
         if (hours < 0 || hours > 12 || minutes < 0 || minutes >= 60) {
             System.out.println("Часы должны быть от 0 до 12, минуты — от 0 до 60");
@@ -101,13 +105,14 @@ public class Main {
         }
         System.out.println(hours + " часов " + minutes + " минут");
 
-        System.out.println("Угол равен: "+angle(hours,minutes));
+        System.out.println("Угол равен: " + angle(hours, minutes));
     }
-    private static double angle(int hours,int minutes){
-        double pointH =  30 * hours + 0.5 * minutes;
-        double pointM =  6 * minutes;
 
-        double angle = pointH > pointM ? pointH - pointM: pointM - pointH;
+    private static double angle(int hours, int minutes) {
+        double pointH = 30 * hours + 0.5 * minutes;
+        double pointM = 6 * minutes;
+
+        double angle = pointH > pointM ? pointH - pointM : pointM - pointH;
         return angle > 180 ? 360 - angle : angle;
     }
 }
