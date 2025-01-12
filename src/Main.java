@@ -11,7 +11,7 @@ public class Main {
         task1(5);
         task2("Hallo");
         task3();
-        task4(3,37);
+        task4(12,59);
     }
 
     public static void task1(int length) {
@@ -101,13 +101,13 @@ public class Main {
         }
         System.out.println(hours + " часов " + minutes + " минут");
 
-        System.out.println("Угол равен: "+corner(hours,minutes));
+        System.out.println("Угол равен: "+angle(hours,minutes));
     }
-    private static double corner(int hours,int minutes){
-        double pointH =  360/12 * hours;
-        double pointM =  360/60 * minutes;
+    private static double angle(int hours,int minutes){
+        double pointH =  30 * hours + 0.5 * minutes;
+        double pointM =  6 * minutes;
 
-        double corner = pointH > pointM ? pointH - pointM: pointM - pointH;
-        return corner;
+        double angle = pointH > pointM ? pointH - pointM: pointM - pointH;
+        return angle > 180 ? 360 - angle : angle;
     }
 }
